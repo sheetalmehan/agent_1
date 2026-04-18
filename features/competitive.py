@@ -40,44 +40,115 @@ def competitive_agent(state: AgentState) -> AgentState:
     else:
         discount_line = f"Listed at ₹{price} (no MRP set)"
 
-    prompt = f"""You are a competitive strategy expert for Indian D2C and dropshipping stores.
+    prompt = f"""
+You are a ruthless Indian D2C growth strategist who understands dropshipping deeply.
 
 {STORE_CONTEXT}
 
-Product to analyse:
+REAL COMPETITOR LANDSCAPE (IMPORTANT CONTEXT):
+
+1. Marketplaces:
+- Amazon India, Flipkart, Banggood
+(cheap listings, fake reviews, price wars)
+
+2. Dropshipping suppliers:
+- AliExpress, CJ Dropshipping, Zendrop, Spocket
+(slow shipping, inconsistent quality, generic products)
+
+3. Indian dropshipping ecosystem:
+- Meesho, GlowRoad, BaapStore, IndiaMART
+(COD-heavy, high RTO, low branding, fast delivery)
+
+ASSUME:
+- Customer has already seen similar products on Amazon/Instagram
+- Trust issues are HIGH
+- COD is preferred
+- Product is NOT unique (only positioning can win)
+
+---
+
+Product:
 - Title: {title}
 - Category: {category}
 - {discount_line}
-- Product URL: {link}
+- Price: ₹{price}
+- URL: {link}
 
-Give a sharp, India-specific competitive strategy. Be concrete — not generic.
+---
 
-Format exactly as follows:
+STRICT RULES:
+- No generic advice
+- Every point must reference REAL marketplace or dropshipping failure patterns
+- Use India-specific psychology (COD hesitation, RTO, fake reviews, cheap imports)
+- Be brutally honest like a founder advisor
+
+---
 
 BETTER PRODUCT TITLE
-Write one improved title (under 80 chars) that is more searchable and conversion-friendly for Indian buyers.
+Rewrite using:
+- High search intent keyword (Amazon-style)
+- + One emotional/gifting hook
+
+---
 
 TOP 3 COMPETITOR WEAKNESSES TO EXPLOIT
-(Common pain points Indian customers have with similar products on Amazon/Flipkart)
-1. [specific, India-relevant weakness]
-2. [specific, India-relevant weakness]
-3. [specific, India-relevant weakness]
 
-YOUR UNIQUE ANGLE
-One specific claim Jupiter World can make for this product that most competitors cannot. Make it concrete.
+1. Amazon/Flipkart weakness:
+   (e.g. fake ratings, poor durability, misleading specs)
+
+2. AliExpress/dropshipping weakness:
+   (e.g. 15-20 day delivery, inconsistent quality)
+
+3. Indian reseller weakness:
+   (e.g. poor packaging, no branding, high RTO)
+
+---
+
+YOUR UNIQUE ANGLE (ONE ONLY)
+Must be DEFENSIBLE vs all 3 layers above.
+
+Bad example: “best quality”
+Good example: “3-day replacement + gift-ready packaging”
+
+---
 
 PRICING VERDICT
-Is ₹{price} the right price for this product in the Indian market? Should it go higher, lower, or stay? One paragraph, specific reasoning including COD and RTO risk.
 
-3 LISTING BULLET POINTS TO ADD
-Bullet points that directly address competitor weaknesses. Ready to copy-paste into the product page.
+Take a STRONG stand:
+- Underpriced / Correct / Overpriced
+
+Justify using:
+- Amazon price band
+- Dropshipping cost reality
+- COD + RTO economics
+
+---
+
+3 LISTING BULLET POINTS
+
+Each must:
+- Remove a buying fear
+- Attack a competitor weakness
+- Be short (max 12 words)
+
+---
 
 GIFT ANGLE
-This store sells premium gifts. Write one gift-positioning line for this product (for Diwali / birthday / anniversary).
+
+Make it feel like:
+- Premium gift (NOT cheap gadget)
+- Indian occasion focused
+
+---
 
 WHATSAPP MESSAGE TO SUPPLIER
-A short message asking the supplier to confirm 2 quality points that differentiate this product from cheap alternatives."""
 
+Ask for:
+- 2 PROOF-based differentiators
+- (materials, durability, certification, packaging)
+
+Sound like a serious bulk buyer.
+"""
     try:
         strategy = call_llm(prompt, max_tokens=900)
         findings = [{"title": title, "price": price, "orig": orig,
