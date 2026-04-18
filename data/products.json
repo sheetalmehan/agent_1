@@ -1,101 +1,22 @@
 [
-    {
-      "title": "Jupiter Smartmemory Frame",
-      "price": 2999,
-      "original_price": 4999,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/digital-video-photo-frame",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1_9_c43a5f14-263f-4587-8803-60bc9195fec8.png",
-      "category": "home_decor"
-    },
-    {
-      "title": "Jupiter Floating Moon Lamp",
-      "price": 4999,
-      "original_price": 6999,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/levitating-moon-led-lamp",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/5B7B05BA-25AC-432F-97DB-907D5A414E09.png",
-      "category": "home_decor"
-    },
-    {
-      "title": "Jupiter UltraSpin Cleaner",
-      "price": 1599,
-      "original_price": 1999,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/9-in-1-electric-spin-scrubber-with-extension-handle",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1_48.png",
-      "category": "cleaning"
-    },
-    {
-      "title": "Jupiter Smart Relief Neck Massager",
-      "price": 1799,
-      "original_price": 3499,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/neck-shoulder-massager",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/2_e792b27e-9d8d-41ac-a92a-d0c2a3ae835c.png",
-      "category": "health"
-    },
-    {
-      "title": "Jupiter WarmPad Food Warming Mat",
-      "price": 2999,
-      "original_price": 4999,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/food-heating-mat-temperature-control",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/61FYAE-zMJL._SL1500.jpg",
-      "category": "kitchen"
-    },
-    {
-      "title": "Electric Wine Opener Set",
-      "price": 2299,
-      "original_price": 3499,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/electric-wine-opener-set",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/WhatsAppImage2025-08-07at16.14.09.jpg",
-      "category": "kitchen"
-    },
-    {
-      "title": "Jupiter Smart Visual Ear Cleaner",
-      "price": 999,
-      "original_price": 1999,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/ear-wax-removal-with-camera",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/71yk6qIRd0L.jpg",
-      "category": "health"
-    },
-    {
-      "title": "Jupiter Bear Alarm & Speaker",
-      "price": 1999,
-      "original_price": 4000,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/adorable-bear-alarm-clock-with-digital-mirror",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/ChatGPT_Image_Jul_23_2025_at_04_39_48_PM.png",
-      "category": "gadgets"
-    },
-    {
-      "title": "Bionic Heated Massager",
-      "price": 2499,
-      "original_price": 3499,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/bionic-heated-massager",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1.jpg",
-      "category": "health"
-    },
-    {
-      "title": "Foldable Electric Kettle",
-      "price": 1999,
-      "original_price": null,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/foldable-electric-kettle-0-6l-silicone-travel-kettle",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/mug1.jpg",
-      "category": "kitchen"
-    },
-    {
-      "title": "Jupiter RelaxWave Massager",
-      "price": 1999,
-      "original_price": 2599,
-      "currency": "INR",
-      "link": "https://jupiterworld.in/products/percussion-massage-ring-for-full-body-pain-relief",
-      "image": "https://cdn.shopify.com/s/files/1/0769/0400/5844/files/6_4.png",
-      "category": "health"
-    }
+    {"title":"Mini Portable Handheld Fan","price":999,"original_price":1499,"currency":"INR","link":"https://jupiterworld.in/products/mini-portable-handheld-fan","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1_cff5e583-ad32-471e-b716-fccbc4ad9ecd.png","category":"gadgets"},
+    {"title":"Jupiter Rechargeable Turbo Handheld Fan","price":499,"original_price":1399,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-rechargeable-turbo-handheld-fan","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/4_10_20919c20-82ea-4ec7-ad30-f60e71bdcae2.png","category":"gadgets"},
+    {"title":"Jupiter Portable Handheld Massager","price":999,"original_price":1599,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-portable-handheld-massager","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/4_8_3b4d70b9-3d96-43e4-ba1b-ff048fe46b30.png","category":"health"},
+    {"title":"Portable Rechargeable Misting Fan","price":999,"original_price":2999,"currency":"INR","link":"https://jupiterworld.in/products/portable-rechargeable-misting-fan","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1_9_f1a1618f-5455-4321-aa0a-e7a3d65b9685.png","category":"gadgets"},
+    {"title":"Jupiter Portable Mini Air Cooler","price":699,"original_price":1499,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-portable-mini-air-cooler","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1_11.png","category":"gadgets"},
+    {"title":"Jupiter FreshBlend Cup","price":1499,"original_price":1999,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-freshblend-cup","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1_7.png","category":"kitchen"},
+    {"title":"Jupiter AirThera Leg Massager","price":2499,"original_price":4499,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-airthera-leg-massager","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1_4_f3a59f0d-407a-4e92-8ee9-f363bb7369db.png","category":"health"},
+    {"title":"Jupiter Ultra Device Care Kit","price":499,"original_price":799,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-ultra-device-care-kit","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/4_2_5190eb20-6b1a-494c-a700-eee9edd0a64b.png","category":"gadgets"},
+    {"title":"Jupiter RelaxWave Massager","price":1999,"original_price":2599,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-relaxwave-massager","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/6_4.png","category":"health"},
+    {"title":"Foldable Electric Kettle 0.6L Silicone Travel Kettle","price":1999,"original_price":null,"currency":"INR","link":"https://jupiterworld.in/products/foldable-electric-kettle-0-6l-silicone-travel-kettle","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/mug1.jpg","category":"kitchen"},
+    {"title":"Bionic Heated Massager","price":2499,"original_price":3499,"currency":"INR","link":"https://jupiterworld.in/products/bionic-heated-massager","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1.jpg","category":"health"},
+    {"title":"Jupiter Care +","price":199,"original_price":199,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-care","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/package-icon-yellow.png","category":"services"},
+    {"title":"Electric Wine Opener Set","price":2299,"original_price":3499,"currency":"INR","link":"https://jupiterworld.in/products/electric-wine-opener-set","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/WhatsAppImage2025-08-07at16.14.09.jpg","category":"kitchen"},
+    {"title":"Jupiter Smart Relief Neck Massager","price":1799,"original_price":3499,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-smart-relief-neck-massager","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/2_e792b27e-9d8d-41ac-a92a-d0c2a3ae835c.png","category":"health"},
+    {"title":"Jupiter Smart Relief Knee Massager","price":3999,"original_price":6499,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-smart-relief-knee-massager","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/2_d853b7c8-5153-4452-89ee-5abdfdcd68cf.jpg","category":"health"},
+    {"title":"Jupiter WarmPad Food Warming Mat","price":2999,"original_price":4999,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-warmpad-food-warming-mat","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/61FYAE-zMJL._SL1500.jpg","category":"kitchen"},
+    {"title":"Jupiter Floating Moon Lamp","price":4999,"original_price":6999,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-floating-moon-lamp","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/5B7B05BA-25AC-432F-97DB-907D5A414E09.png","category":"home_decor"},
+    {"title":"Jupiter Bear Alarm & Speaker","price":1999,"original_price":4000,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-bear-alarm-speaker","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/ChatGPT_Image_Jul_23_2025_at_04_39_48_PM.png","category":"gadgets"},
+    {"title":"Jupiter Smartmemory Frame","price":2999,"original_price":4999,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-smartmemory-frame","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1_9_c43a5f14-263f-4587-8803-60bc9195fec8.png","category":"home_decor"},
+    {"title":"Jupiter UltraSpin Cleaner","price":1599,"original_price":1999,"currency":"INR","link":"https://jupiterworld.in/products/jupiter-ultraspin-cleaner","image":"https://cdn.shopify.com/s/files/1/0769/0400/5844/files/1_48.png","category":"cleaning"}
   ]
