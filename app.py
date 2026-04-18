@@ -22,6 +22,7 @@ with st.sidebar:
 
     st.markdown("**Data source**")
     st.success("Scraped JSON — jupiterworld.in", icon="✅")
+
     st.divider()
     products_raw = load_products()
     titles = [p["title"] for p in products_raw]
@@ -36,10 +37,8 @@ with st.sidebar:
 
     st.divider()
     st.caption("Phase 2 upgrade")
-    st.info(
-    "Connect Shopify API to get live stock, order history, and real sales velocity.",
-    icon="🔗"
-)
+    st.info("Connect Shopify API to get live stock, order history, and real sales velocity.", icon="📌")
+
 # ── Run agents ────────────────────────────────────────────────────────────────
 if run_btn or "state" not in st.session_state:
     with st.spinner("Running AI agents across Jupiter World catalogue..."):
@@ -60,20 +59,23 @@ dead           = state["dead_stock_findings"]
 competitive    = state["competitive_findings"]
 
 # ── Metric strip ──────────────────────────────────────────────────────────────
-def _p(p):
-    try:
-        price = float(p.get("price",0))
-        orig  = float(p.get("original_price") or price)
-        return int(((orig-price)/orig)*100) if orig > price > 0 else 0
-    except:
-        return 0
 m1, m2, m3, m4, m5 = st.columns(5)
 m1.metric("Products", len(products))
 m2.metric("Bundle opportunities", len(bundles))
 m3.metric("Needs attention", len([x for x in inventory if x["urgency"] in ("critical","warning")]))
 m4.metric("Pricing risk", len([x for x in dead if x["urgency"] in ("high","medium")]))
-m5.metric("Avg discount", f"{int(sum(_p(p) for p in products)/len(products))}%" if products else "—")
+def _p(p):
+    try:
+        if p.get("category") == "services":
+            return None
+        price = float(p.get("price", 0))
+        orig  = float(p.get("original_price") or price)
+        return int(((orig - price) / orig) * 100) if orig > price > 0 else 0
+    except:
+        return None
 
+_discounts = [v for p in products if (v := _p(p)) is not None]
+m5.metric("Avg discount", f"{int(sum(_discounts)/len(_discounts))}%" if _discounts else "—")
 
 st.divider()
 
@@ -119,7 +121,7 @@ with tab2:
         st.info(
             "**Phase 1:** No live stock counts yet — showing discount depth analysis as proxy signal.  \n"
             "**Phase 2:** Connect Shopify API → get real stock levels, days-to-stockout, and auto reorder messages.",
-            icon="📊"
+            icon="⭕️"
         )
 
     # Summary table

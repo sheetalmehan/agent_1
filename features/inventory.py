@@ -8,8 +8,19 @@ it could be a pricing strategy. We flag these for manual review.
 
 Phase 2 (Shopify API): swap _get_stock() body to call inventory_levels.json
 Everything else stays identical.
+
+Changes from v1:
+  - Excludes services category
+  - Groups fan/cooling products — flags seasonal risk (summer products, demand drops Oct-Feb)
+  - Handles null original_price for Foldable Kettle
+  - Rs499 products get a special COD margin warning alongside discount signal
 """
 from graph.state import AgentState
+
+EXCLUDED_CATEGORIES = {"services"}
+ 
+# Products/keywords that are seasonal — flag if it's off-season
+SEASONAL_KEYWORDS = ["fan", "cooler", "misting", "cooling"]
 
 def _price(p: dict) -> float:
     try:
@@ -47,6 +58,10 @@ def _get_stock(product: dict) -> int:
                 continue
     return -1   # unknown — scraped data has no stock field
 
+def _is_seasonal(p: dict) -> bool:
+    t = p.get("title", "").lower()
+    return any(kw in t for kw in SEASONAL_KEYWORDS)
+
 def _discount_pct(p: dict) -> int:
     price = _price(p)
     orig  = _orig_price(p)
@@ -56,82 +71,84 @@ def _discount_pct(p: dict) -> int:
 
 def inventory_agent(state: AgentState) -> AgentState:
     findings = []
-
+ 
     for product in state["products"]:
-        stock       = _get_stock(product)
-        price       = _price(product)
-        orig        = _orig_price(product)
-        discount    = _discount_pct(product)
-        title       = product.get("title", "Unknown")
-        category    = product.get("category", "")
-
+        if product.get("category") in EXCLUDED_CATEGORIES:
+            continue
+ 
+        stock    = _get_stock(product)
+        price    = _price(product)
+        orig     = _orig_price(product)
+        discount = _discount_pct(product)
+        title    = product.get("title", "Unknown")
+        seasonal = _is_seasonal(product)
+ 
         if stock != -1:
-            # Real stock data available (Phase 2)
-            LEAD = 3
-            BUFFER = 2
-            est_daily = 1.0
-            days_left = round(stock / est_daily, 1) if est_daily else 999
-
+            # Phase 2 — real stock data available
+            LEAD, BUFFER = 3, 2
+            daily = 1.0
+            days_left = round(stock / daily, 1) if daily else 999
+ 
             if stock == 0:
-                urgency = "critical"
-                status  = "OUT OF STOCK"
-                action  = f"Reorder immediately. Suggest 20 units."
+                urgency, status = "critical", "OUT OF STOCK"
+                action = "Reorder immediately. Suggest 20 units."
             elif days_left <= LEAD:
-                urgency = "critical"
-                status  = "CRITICAL"
-                action  = f"Order today — only {days_left} days left."
+                urgency, status = "critical", "CRITICAL"
+                action = f"Order today. Only {days_left} days left."
             elif days_left <= LEAD + BUFFER:
-                urgency = "warning"
-                status  = "WARNING"
-                action  = f"Reorder within 2 days. {days_left} days left."
+                urgency, status = "warning", "WARNING"
+                action = f"Reorder within 2 days. {days_left} days left."
             else:
-                urgency = "ok"
-                status  = "OK"
-                action  = "No action needed."
-
+                urgency, status = "ok", "OK"
+                action = "No action needed."
+ 
+            if seasonal:
+                action += " [SEASONAL product — check demand before reordering in Oct–Feb]"
+ 
             findings.append({
-                "title":       title,
-                "stock":       stock,
-                "days_left":   days_left,
-                "status":      status,
-                "urgency":     urgency,
-                "action":      action,
-                "discount":    discount,
-                "price":       price,
-                "data_source": "live",
+                "title": title, "stock": stock, "days_left": days_left,
+                "status": status, "urgency": urgency, "action": action,
+                "discount": discount, "price": price,
+                "seasonal": seasonal, "data_source": "live",
             })
-
+ 
         else:
-            # Phase 1 — no stock data. Use discount as proxy signal.
-            if orig == price or orig == 0:
-                urgency = "no_data"
-                status  = "NO STOCK DATA"
-                action  = "Connect Shopify API to see live stock levels."
-            elif discount >= 50:
-                urgency = "warning"
-                status  = "HEAVY DISCOUNT"
-                action  = f"{discount}% off MRP — possible overstock or clearance. Verify with supplier."
-            elif discount >= 30:
-                urgency = "low"
-                status  = "DISCOUNTED"
-                action  = f"{discount}% off MRP — monitor sales velocity."
+            # Phase 1 — no stock data, use discount + price as proxy signals
+            if price <= 499:
+                urgency, status = "warning", "MARGIN RISK"
+                action = (
+                    f"₹{int(price)} with {discount}% discount. "
+                    "COD return at this price = net loss. "
+                    "Enforce prepaid or add COD surcharge before stocking more."
+                )
+            elif discount >= 60:
+                urgency, status = "warning", "HEAVY DISCOUNT"
+                action = (
+                    f"{discount}% off MRP. Verify this is intentional. "
+                    "If not selling, don't restock until pricing is reviewed."
+                )
+            elif discount >= 35:
+                urgency, status = "low", "DISCOUNTED"
+                action = f"{discount}% off MRP — monitor sales before reordering."
+            elif orig == price:
+                urgency, status = "no_data", "NO DISCOUNT DATA"
+                action = "No MRP set. Hard to show value. Consider adding original price."
             else:
-                urgency = "ok"
-                status  = "NORMAL PRICING"
-                action  = "Standard discount. No action needed."
-
+                urgency, status = "ok", "NORMAL"
+                action = "Standard pricing. No action needed."
+ 
+            if seasonal and urgency in ("ok", "low"):
+                action += " [SEASONAL — check month before reordering]"
+                urgency = "low"
+                status  = "SEASONAL — monitor"
+ 
             findings.append({
-                "title":       title,
-                "stock":       "unknown",
-                "days_left":   "—",
-                "status":      status,
-                "urgency":     urgency,
-                "action":      action,
-                "discount":    discount,
-                "price":       price,
-                "data_source": "scraped",
+                "title": title, "stock": "unknown", "days_left": "—",
+                "status": status, "urgency": urgency, "action": action,
+                "discount": discount, "price": price,
+                "seasonal": seasonal, "data_source": "scraped",
             })
-
+ 
     order = {"critical": 0, "warning": 1, "low": 2, "ok": 3, "no_data": 4}
     findings.sort(key=lambda x: order.get(x["urgency"], 5))
     return {**state, "inventory_findings": findings}
