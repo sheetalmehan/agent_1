@@ -1,180 +1,174 @@
-# 🚀 JupiterIntel Agent
-## AI-Powered eCommerce Intelligence Platform for Modern Sellers
+<div align="center">
 
-JupiterIntel Agent is an AI-driven product intelligence platform that helps eCommerce sellers discover winning products, optimize listings, analyze competitors, and improve pricing strategies using LLM-powered insights and agentic AI workflows.
+# JupiterIntel
 
-Built for Shopify sellers, dropshipping businesses, and D2C brands, the platform transforms raw marketplace data into actionable business intelligence.
+### AI-powered eCommerce Intelligence Platform
 
-🌐 **Live Demo:** https://agent1-oaareydbxcs4wnqzr4kucv.streamlit.app/
+**Transform marketplace data into actionable product, pricing, and competitor intelligence using Agentic AI.**
 
----
+**Python • LangGraph • LangChain • Streamlit • PostgreSQL • OpenAI • Gemini**
 
-# 🔥 Key Highlights
+**Live Demo:** https://agent1-oaareydbxcs4wnqzr4kucv.streamlit.app/
 
-✅ AI-Powered Product Intelligence  
-✅ Competitor Weakness Detection  
-✅ Smart Bundle Recommendation Engine  
-✅ Pricing & Discount Optimization  
-✅ SEO-Friendly Listing Generation  
-✅ Inventory & Risk Analysis  
-✅ Agentic AI Workflows using LangGraph  
-✅ Real-Time Marketplace Insights  
+</div>
 
 ---
 
-# 🧠 What JupiterIntel Does
+## Overview
 
-JupiterIntel analyzes scraped marketplace products and generates seller-focused insights such as:
+JupiterIntel is an AI-powered eCommerce intelligence platform that enables sellers to make informed business decisions through automated product research and marketplace analysis.
 
-- 📦 Products frequently bought together
-- 💰 Optimal selling price recommendations
-- 📉 Inventory and saturation risk analysis
-- 🥊 Competitor weaknesses to exploit
-- ✍️ High-converting AI-generated product titles
-- 🎯 Unique selling angles for differentiation
-- 📈 Conversion-focused product bullet points
+The platform combines web scraping, large language models, and LangGraph-based agent workflows to generate insights across product positioning, competitor analysis, pricing strategy, listing optimization, and inventory risk. Rather than manually comparing products across multiple marketplaces, users receive structured recommendations within seconds.
 
 ---
 
-# ✨ AI Listing Optimization
+## Features
 
-### Example Transformation
-
-### Original Product Title
-> Mini Portable Handheld Fan
-
-### AI-Optimized Titles
-- **Beat Summer Heat with Portable Mini Fan (₹999, Fast Delivery)**
-- **Gift Her a Cool Breeze with this Mini Portable Fan (33% Off)**
-
-### AI-Generated Product Hooks
-- Emotional gifting hooks
-- Amazon-style high-intent keywords
-- Conversion-focused marketing copy
+* AI-assisted product research
+* Competitor intelligence and market gap analysis
+* SEO-focused product title and description generation
+* Pricing recommendations based on marketplace positioning
+* Product bundle recommendations to improve average order value
+* Inventory and market saturation risk analysis
+* Multi-step AI reasoning using LangGraph agents
 
 ---
 
-# 🥊 Competitor Intelligence Engine
-
-JupiterIntel identifies exploitable weaknesses across marketplaces like Amazon, Flipkart, and AliExpress.
-
-### Example Insights
-- Amazon sellers suffer from fake-review trust issues
-- AliExpress competitors face 15–20 day delivery delays
-- Local resellers struggle with poor packaging quality
-
-### Suggested Competitive Edge
-> 3-Day Replacement + Gift-Ready Packaging
-
----
-
-# 💰 Smart Pricing Engine
-
-The platform evaluates:
-- Competitor pricing
-- Discount positioning
-- COD economics
-- Margin feasibility
-- Product affordability bands
-
-### Example Pricing Verdict
-> ₹999 aligns with Amazon pricing while remaining competitive for dropshipping margins.
-
----
-
-# 📦 Bundle Recommendation System
-
-AI identifies products frequently sold together to increase:
-- Average Order Value (AOV)
-- Cross-selling opportunities
-- Upselling potential
-
-### Example Bundle
-> Portable Fan + Cooling Bottle + Mini Humidifier
-
----
-
-# 📊 Inventory & Risk Analysis
-
-JupiterIntel helps sellers avoid scaling risky products by detecting:
-- Product saturation
-- High-RTO items
-- Poor delivery feasibility
-- Weak supplier reliability
-
----
-
-# 🏗️ Tech Stack
-
-| Technology | Purpose |
-|---|---|
-| Python | Backend Development |
-| Streamlit | Interactive Frontend |
-| LangChain | LLM Orchestration |
-| LangGraph | Agentic AI Workflows |
-| OpenAI / Gemini APIs | AI Reasoning |
-| BeautifulSoup | Web Scraping |
-| PostgreSQL / SQL | Data Management |
-| Pandas | Data Processing |
-
----
-
-# ⚙️ System Architecture
+## Architecture
 
 ```text
-Marketplace Product Data
-            ↓
-      Web Scraping Layer
-            ↓
-      JupiterIntel Agent
-            ↓
-     AI Analysis Engine
-            ↓
- ┌─────────────────────────┐
- │ Bundle Recommendations  │
- │ Pricing Optimization    │
- │ Risk Analysis           │
- │ Competitor Insights     │
- │ Listing Generation      │
- └─────────────────────────┘
-            ↓
- Seller Intelligence Dashboard
+Marketplace Data
+        │
+        ▼
+ Web Scraping Pipeline
+        │
+        ▼
+ Data Processing Layer
+        │
+        ▼
+ LangGraph Agent Workflow
+        │
+ ┌────────────┬─────────────┬──────────────┐
+ │            │             │              │
+ ▼            ▼             ▼              ▼
+Pricing   Competitor    Listing      Bundle & Risk
+Engine     Analysis    Generation      Analysis
+ │            │             │              │
+ └────────────┴─────────────┴──────────────┘
+                     │
+                     ▼
+       Business Intelligence Dashboard
 ```
 
 ---
 
-# 🚀 Getting Started
+## Core Capabilities
 
-## Clone the Repository
+### Competitor Analysis
+
+Analyze marketplace listings to identify:
+
+* Pricing gaps
+* Customer pain points
+* Delivery limitations
+* Review sentiment
+* Differentiation opportunities
+
+### AI Listing Generation
+
+Generate optimized product content including:
+
+* SEO-friendly titles
+* Product descriptions
+* Marketing hooks
+* Product highlights
+* Unique selling propositions
+
+### Pricing Intelligence
+
+Recommend competitive selling prices by evaluating:
+
+* Competitor pricing
+* Discount positioning
+* Margin feasibility
+* Product affordability
+
+### Bundle Recommendations
+
+Identify complementary products that improve:
+
+* Cross-selling
+* Upselling
+* Average Order Value (AOV)
+
+### Inventory Risk Analysis
+
+Evaluate products using signals such as:
+
+* Market saturation
+* Supplier reliability
+* Fulfillment feasibility
+* Inventory risk
+
+---
+
+## Technology Stack
+
+| Category             | Technologies         |
+| -------------------- | -------------------- |
+| Programming Language | Python               |
+| AI Frameworks        | LangChain, LangGraph |
+| LLMs                 | OpenAI, Gemini       |
+| Frontend             | Streamlit            |
+| Database             | PostgreSQL           |
+| Data Processing      | Pandas               |
+| Web Scraping         | BeautifulSoup        |
+
+---
+
+## Project Structure
+
+```text
+JupiterIntel/
+│
+├── app.py
+├── agents/
+├── scraper/
+├── prompts/
+├── database/
+├── utils/
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Getting Started
+
+### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/jupiterintel-agent.git
-cd jupiterintel-agent
+git clone https://github.com/<your-username>/JupiterIntel.git
+cd JupiterIntel
 ```
 
----
-
-## Install Dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
+### Configure environment variables
 
-## Configure Environment Variables
-
-Create a `.env` file:
+Create a `.env` file.
 
 ```env
-OPENAI_API_KEY=your_key
-GOOGLE_API_KEY=your_key
-GROQ_API_KEY=your_key
+OPENAI_API_KEY=your_api_key
+GOOGLE_API_KEY=your_api_key
+GROQ_API_KEY=your_api_key
 ```
 
----
-
-## Run the Application
+### Run the application
 
 ```bash
 streamlit run app.py
@@ -182,49 +176,25 @@ streamlit run app.py
 
 ---
 
-# 🎯 Ideal Users
+## Roadmap
 
-- Shopify Sellers
-- Dropshipping Businesses
-- D2C Brands
-- Product Research Teams
-- eCommerce Agencies
-- Amazon/Flipkart Sellers
-
----
-
-# 🔮 Future Enhancements
-
-- AI Ad Copy Generator
-- Meta/TikTok Ad Intelligence
-- Predictive Demand Forecasting
-- Shopify Plugin Integration
-- Multi-Agent Collaboration
-- Real-Time Trend Tracking
+* Multi-agent collaboration
+* Real-time marketplace monitoring
+* Demand forecasting
+* Shopify integration
+* Advertisement intelligence
+* Automated competitor tracking
 
 ---
 
-# 👨‍💻 Author
+## Author
 
-## Sheetal Mehan
-AI Engineer | Agentic AI | LangGraph | Data Analytics
+**Sheetal Mehan**
 
----
-
-# ⭐ Why This Project Stands Out
-
-Unlike generic AI chatbot projects, JupiterIntel solves real-world eCommerce business problems using:
-
-- Agentic AI systems
-- Marketplace intelligence
-- Web scraping pipelines
-- LLM-powered optimization
-- Business-focused decision intelligence
-
-This project demonstrates practical AI engineering applied to scalable business workflows.
+AI Engineering • Agentic AI • LangGraph • Data Analytics
 
 ---
 
-# 📜 License
+## License
 
 This project is licensed under the MIT License.
